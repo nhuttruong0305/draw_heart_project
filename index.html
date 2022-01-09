@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart for you</title>
+    <style>
+        .heart{
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            margin: 200px;
+            transform: rotate(225deg);
+        }
+        .heart::after, .heart::before{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border-radius: 50%;
+            content: "";
+        }
+        .heart::after{
+            /* bottom: -100px; */
+            left: 0;
+            animation: heartleft 3s ease-out forwards;
+        }
+        .heart::before{
+            top: 0;
+            /* right: -100px; */
+            animation: heartright 3s ease-out forwards;
+        }
+
+        @keyframes heartleft {
+            from{
+                bottom: -800px;
+            }
+            to{
+                bottom: -100px;
+            }
+        }
+        @keyframes heartright {
+            from{
+                right: -800px;
+            }
+            to{
+                right: -100px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+   <div onclick="hide()" class="heart" id="heart"></div>
+   <script type="text/javascript">
+    function hide(){
+        document.getElementById("heart").style.display="none";
+    }
+</script>
+</body>
+</html>
